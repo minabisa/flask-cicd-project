@@ -19,6 +19,11 @@ jobs:
               run: |
                   mkdir -p $HOME/.docker
                   echo '{"credsStore":""}' > $HOME/.docker/config.json
+            - name: Fix Docker + unlock keychain
+              run: |
+                  mkdir -p $HOME/.docker
+                  echo '{"credsStore":""}' > $HOME/.docker/config.json
+                  security unlock-keychain -p "${{ secrets.RUNNER_KEYCHAIN_PASSWORD }}" login.keychain || true
 
             - name: Login DockerHub
               uses: docker/login-action@v3
