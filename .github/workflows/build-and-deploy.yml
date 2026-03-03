@@ -43,6 +43,9 @@ jobs:
             - name: Verify cluster access
               run: kubectl get nodes
 
+            - name: Checkout code
+              uses: actions/checkout@v4
+
             - name: Deploy with Helm
               run: |
                   helm upgrade --install flask ./helm/flask-cicd \
