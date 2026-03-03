@@ -48,7 +48,7 @@ jobs:
 
             - name: Deploy with Helm
               run: |
-                  helm upgrade --install flask ./helm/flask-cicd \
+                  helm upgrade --install flask ./flask-cicd \
                     -n dev --create-namespace \
                     --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/flask-app \
                     --set image.tag=${{ env.IMAGE_TAG }}
