@@ -17,8 +17,8 @@ jobs:
 
             - name: Disable Docker credential store
               run: |
-                  mkdir -p ~/.docker
-                  echo '{"credsStore": ""}' > ~/.docker/config.json
+                  mkdir -p $HOME/.docker
+                  echo '{"credsStore":""}' > $HOME/.docker/config.json
 
             - name: Login DockerHub
               uses: docker/login-action@v3
